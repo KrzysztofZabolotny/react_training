@@ -1,20 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from "react"
 import { Chart as ChartJS, BarElement } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import { Chart, registerables } from 'chart.js';
+import NumberService from '../services/NumberService';
 Chart.register(...registerables);
 
 ChartJS.register(
     BarElement
 )
 
+
+
 const BarChart = () => {
 
+    
+    //const numbers = NumberService.getNumbers();
+    const [numbers, setNumbers] = useState([])
+
+    const fetchData = () => {
+        fetch("http://localhost:8080/testNumbers")
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            setNumbers(data)
+          })
+      }
+      useEffect(() => {
+        fetchData()
+      }, [])
+
+      console.log(numbers);
+    
     var data = {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Price of coins',
+            data: numbers,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -35,6 +58,7 @@ const BarChart = () => {
         }]
     }
 
+
     var options =  {
         maintainAspectRatio: false,
         scales: {
@@ -50,6 +74,7 @@ const BarChart = () => {
     return(
         <div>
             <Bar
+        
             data={data}
             height={400}
             options={options}
