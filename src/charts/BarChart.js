@@ -18,7 +18,7 @@ const BarChart = () => {
     const [numbers, setNumbers] = useState([])
 
     const fetchData = () => {
-        fetch("http://localhost:8080/testNumbers")
+        fetch("http://localhost:8080/coins")
           .then(response => {
             return response.json()
           })
@@ -33,11 +33,11 @@ const BarChart = () => {
       console.log(numbers);
     
     var data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: numbers?.map(x => x.name),
+        
         datasets: [{
             label: 'Price of coins',
-            data: numbers,
+            data: numbers?.map(x => x.price),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
