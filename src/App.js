@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import UserComponent from './components/UserComponent'
+import BarChart from './charts/BarChart';
+import CoinComponent from './components/CoinComponent';
 
 function App() {
   return (
     <div className="App">
-      <UserComponent />
+      <BarChart />
+      //<CoinComponent />
     </div>
   );
 }
