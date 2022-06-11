@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react"
 import { Chart as ChartJS, BarElement } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import { Chart, registerables } from 'chart.js';
-import NumberService from '../services/NumberService';
+import { Link } from "react-router-dom";
+
 Chart.register(...registerables);
 
 ChartJS.register(
     BarElement
 )
-
-
 
 const BarChart = () => {
 
@@ -18,7 +17,7 @@ const BarChart = () => {
     const [numbers, setNumbers] = useState([])
 
     const fetchData = () => {
-        fetch("http://localhost:8080/coins")
+        fetch("http://localhost:8080/testHistory")
           .then(response => {
             return response.json()
           })
@@ -33,11 +32,11 @@ const BarChart = () => {
       console.log(numbers);
     
     var data = {
-        labels: numbers?.map(x => x.name),
+        labels: numbers?.map(x => x.priceDate),
         
         datasets: [{
-            label: 'Price of coins',
-            data: numbers?.map(x => x.price),
+            label: `${numbers?.coinName}`,
+            data: numbers?.map(x => x.coinPrice),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -69,17 +68,21 @@ const BarChart = () => {
         
     }
     
-
     
     return(
+        <React.Fragment>
         <div>
             <Bar
-        
             data={data}
             height={400}
             options={options}
             />
         </div>
+        <div>
+            <Link to="/home">Click here for home</Link>
+
+        </div>
+        </React.Fragment>
     )
 }
 export default BarChart

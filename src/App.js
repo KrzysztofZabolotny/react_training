@@ -1,12 +1,14 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import BarChart from './charts/BarChart';
-import CoinComponent from './components/CoinComponent';
+import Main from './components/MainComponent';
+
 
 function App() {
   return (
     <div className="App">
-      <BarChart />
-      <CoinComponent />
+      <BrowserRouter>
+      <Main />
+      </BrowserRouter>
     </div>
   );
 }

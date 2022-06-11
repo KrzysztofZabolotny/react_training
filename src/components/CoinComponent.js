@@ -1,5 +1,7 @@
 import React from 'react';
 import CoinService from '../services/CoinService';
+import { Link } from "react-router-dom";
+
 class CoinComponent extends React.Component{
 
 constructor(props){
@@ -17,6 +19,7 @@ componentDidMount(){
 
 render(){
     return(
+        <React.Fragment>
         <div>
             <h1 className='text-center'>Coins List</h1>
             <table className='table table-striped'>
@@ -48,6 +51,11 @@ render(){
                 </tbody>
             </table>
         </div>
+        <div>
+        <Link to="/home">Click here for home</Link>
+
+    </div>
+    </React.Fragment>
     )
 }
 }
