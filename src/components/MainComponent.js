@@ -7,6 +7,7 @@ import CoinComponent from './CoinComponent';
 import Home from './HomeComponent'
 import { Route, withRouter, BrowserRouter, Switch } from 'react-router-dom'
 import Login from './LoginComponent';
+import CreateUserComponent from './CreateUserComponent';
 
 
 
@@ -20,6 +21,8 @@ function Main() {
                     <Route path='/chart' component={BarChart} />
                     <Route path='/coins' component={CoinComponent} />
                     <Route path='/login' component={Login} />
+                    <Route path='/register' component={CreateUserComponent} />
+
                     <Route component={NotFound} />
                 </Switch>
             </BrowserRouter>
