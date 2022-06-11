@@ -5,29 +5,27 @@ import NotFound from './NotFound';
 import BarChart from './BarChart';
 import CoinComponent from './CoinComponent';
 import Home from './HomeComponent'
-import {Link} from 'react-router-dom'
+import { Route, withRouter, BrowserRouter, Switch } from 'react-router-dom'
+import Login from './LoginComponent';
 
 
 
-import {Route, withRouter,BrowserRouter, Switch} from 'react-router-dom'
-
-
-
-function Main (){
-    return(
+function Main() {
+    return (
         <React.Fragment>
-        <Header/>
-        <BrowserRouter>
-        <Switch>
-                <Route path='/home' component={Home}/>   
-                <Route path='/chart' component={BarChart}/>    
-                <Route path='/coins' component={CoinComponent}/>
-                <Route component={NotFound}/>
-        </Switch>
-        </BrowserRouter>
-        <Footer/>
+            <Header />
+            <BrowserRouter>
+                <Switch>
+                    <Route path='/home' component={Home} />
+                    <Route path='/chart' component={BarChart} />
+                    <Route path='/coins' component={CoinComponent} />
+                    <Route path='/login' component={Login} />
+                    <Route component={NotFound} />
+                </Switch>
+            </BrowserRouter>
+            <Footer />
         </React.Fragment>
     )
 }
- 
+
 export default withRouter(Main);;

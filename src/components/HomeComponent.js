@@ -1,13 +1,21 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function Home(){
-    return(
-        <React.Fragment>
-     <Link to="/home">Go Home</Link><br/>
-    <Link to="/coins">Go to coins</Link><br/>
-    <Link to="/chart">Go to charts</Link><br/>
-        </React.Fragment>
+function Home() {
+
+    const homeComponentStyle = {
+        margin: "60px",
+    }
+    return (
+        <div className='navbar'>
+            <div class="navbar">
+                <Link to="/home">Go Home</Link>
+                <Link to="/coins">Coins</Link>
+                <Link to="/chart">Charts</Link>
+                <Link to="/login">Login</Link>
+            </div>
+
+        </div>
     )
 }
 export default Home;
