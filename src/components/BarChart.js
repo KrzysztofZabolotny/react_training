@@ -29,13 +29,14 @@ const BarChart = () => {
         fetchData()
       }, [])
 
-      console.log(numbers);
+      var coins = numbers?.map(x => x.coinName);
+
     
     var data = {
         labels: numbers?.map(x => x.priceDate),
         
         datasets: [{
-            label: `${numbers?.coinName}`,
+            label: `${coins[0]}`+ ' price in Nok',
             data: numbers?.map(x => x.coinPrice),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

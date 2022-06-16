@@ -113,3 +113,11 @@ input[type="submit"]:hover {
   gap: 8px;
   margin: 10px;
 }
+
+.col {
+  padding: 7.5%;
+  border-color: red;
+  border: black;
+  border-style: dashed;
+
+}
